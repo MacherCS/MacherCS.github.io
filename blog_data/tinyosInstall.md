@@ -14,17 +14,17 @@ issues. Luckily, I soloved all issues but I finally failed at that my glibc vers
 
 Now let's start the tutorial.<br/>
 
-1. Open /etc/apt/sources.list ，add the source in the end of the file：<br/>
+1\. Open /etc/apt/sources.list ，add the source in the end of the file：<br/>
 deb http://tinyos.stanford.edu/tinyos/dists/ubuntu lucid main <br/>
 **Do not add other sources about TinyOS to this file!**
 
-2. Execute the update of apt:<br/>
+2\. Execute the update of apt:<br/>
 $ sudo apt-get update
 
-3. Install TinyOS and its libraries: <br/>
+3\. Install TinyOS and its libraries: <br/>
 $ sudo apt-get install tinyos-2.1.2
 
-4. Set the environment: <br/>
+4\. Set the environment: <br/>
 Consider there is no tinyos.sh in folder tinyos-2.1.2, now we have build a new one: <br/>
 $ cd /opt/tinyos-2.1.2 <br/>
 $ sudo vim tinyos.sh
@@ -49,22 +49,22 @@ Then we update the setting of .bashrc:<br/>
 $ source ~/.bashrc <br/>
 
 
-5. Install JNI and g++
+5\. Install JNI and g++
 $ sudo tos-install-jni <br/>
 $ sudo apt-get install g++
 
-6. Close all terminals, and then reboot terminal to make sure the setting 
+6\. Close all terminals, and then reboot terminal to make sure the setting 
 works.
 
-7. Execute **tos-check-env** to check whether the installation is finished well<br/>
+7\. Execute **tos-check-env** to check whether the installation is finished well<br/>
 $ tos-check-env 
 
 **Usually, there will be 2 Warnings - 1. your java version is not 1.4 or 1.5 (You just need to make sure your java version is higher than 1.5); 2. graphviz version is wrong (Just ignore it!)**
 
-8. Install python-dev<br/>
+8\. Install python-dev<br/>
 $ sudo apt-get install python2.7-dev
 
-9. Test
+9\. Test
 Blink a simple program and now try to compile it:<br/>
 $ sudo chmod -R 777 /opt/tinyos-2.1.2/<br/>
 **This step is try to let python to read files of tinyos**<br/>
@@ -73,7 +73,7 @@ $ make micaz sim<br/>
 
 **If you see build successfully, then you succeed. If not, just figure out what is the problem.**
 
-10. Download the program to TELOSB node<br/>
+10\. Download the program to TELOSB node<br/>
 $ cd /opt/tinyos-2.1.2/apps/Blink<br/>
 $ make telsob<br/>
 $ motelist<br/>
@@ -81,8 +81,8 @@ $ sudo chmod 666 /dev/ttyUSB0     **//change the authority of port, or you will 
 $ make telosb reinstall bsl,/dev/ttyUSB0<br/>
 
 ## Attention
-1. The difference between “install” and “reinstall” is that the former compiles program, sets the address of node and downloads program to the node; and the latter does not has the compile process.
+1\. The difference between “install” and “reinstall” is that the former compiles program, sets the address of node and downloads program to the node; and the latter does not has the compile process.
 
-2. Install TinyOS Make System Version 3<br/>
+2\. Install TinyOS Make System Version 3<br/>
 If you find an error that does not find aclocal, then:<br/>
 $ sudo apt-get install automake
