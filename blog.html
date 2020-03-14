@@ -41,23 +41,16 @@
 	</div>
 	<div id="body">
 		<div id="blog">
-			<p>
-				<b>Comming soon</b>
-			</p>
-			<img src="images/presentation.jpg" alt="">
-			<p>
-				......
-			</p>
-			<p>
-				......
-			</p>
+			
+
+
 		</div>
 		<div id="sidebar">
 			<div>
 				<h3>recent post</h3>
 				<ul>
 					<li>
-						<a href="#">Time-series data storing model</a>
+						<a href="#">The installation of TinyOS 2.1.2</a>
 					</li>
 				</ul>
 			</div>
@@ -102,5 +95,38 @@
 			&copy; Copyright 2019. All rights reserved.&nbsp;
 		</p>
 	</div>
+
+	<script type="text/javascript" src="js/marked.js"></script>
+	<script type="text/javascript">
+		var ajx = new XMLHttpRequest()
+        ajx.open("get","/blog_data/tinyosInstall.md", true)
+        ajx.onreadystatechange = function(){
+            if(ajx.readyState!=4){
+                return;
+            }
+            if(ajx.status>=200 && ajx.status<300){
+                showContent(ajx.responseText);
+            }
+        }
+        ajx.send()
+
+		function showContent(content){
+			var rendererMD = new marked.Renderer();
+		    marked.setOptions({
+		      renderer: rendererMD,
+		      gfm: true,
+		      tables: true,
+		      breaks: false,
+		      pedantic: false,
+		      sanitize: false,
+		      smartLists: true,
+		      smartypants: false
+		    });//基本设置
+		    //console.log('I am using __markdown__.');
+		    // Outputs: <p>I am using <strong>markdown</strong>.</p>
+		    document.getElementById('blog').innerHTML = marked(content);
+		}
+	</script>
+	
 </body>
 </html>
