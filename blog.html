@@ -50,7 +50,7 @@
 				<h3>recent post</h3>
 				<ul>
 					<li>
-						<a href="#">The installation of TinyOS 2.1.2</a>
+						<a href="blog.html?id=tinyosInstall">The installation of TinyOS 2.1.2 (2020-03-14)</a>
 					</li>
 				</ul>
 			</div>
@@ -58,10 +58,10 @@
 				<h3>archives</h3>
 				<ul>
 					<li>
-						<a href="#">Time-series data storing model</a>
+						<a href="blog.html?id=tdStoreModel">Time-series data storing model</a>
 					</li>
 					<li>
-						<a href="#">Something about InfluxDB</a>
+						<a href="blog.html?id=influxDB">Something about InfluxDB</a>
 					</li>
 					<li>
 						<a href="#">The thought about the File of TSM Engine </a>
@@ -98,8 +98,15 @@
 
 	<script type="text/javascript" src="js/marked.js"></script>
 	<script type="text/javascript">
+		id = GetQueryString("id")
+		if(id != null && id.toString().length>1)
+		{}
+		else{
+			id = "tinyosInstall"
+		}
+
 		var ajx = new XMLHttpRequest()
-        ajx.open("get","/blog_data/tinyosInstall.md", true)
+        ajx.open("get","/blog_data/"+id+".md", true)
         ajx.onreadystatechange = function(){
             if(ajx.readyState!=4){
                 return;
@@ -109,6 +116,13 @@
             }
         }
         ajx.send()
+
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
 
 		function showContent(content){
 			var rendererMD = new marked.Renderer();

@@ -1,5 +1,11 @@
 # The installation of TinyOS 2.1.2
 
+TOSSIM simulates entire TinyOS applications. It works by replacing components with simulation implementations. The level at which components are replaced is very flexible: for example, there is a simulation implementation of millisecond timers that replaces HilTimerMilliC, while there is also an implementation for atmega128 platforms that replaces the HPL components of the hardware clocks. The former is general and can be used for any platform, but lacks the fidelity of capturing an actual chip's behavior, as the latter does. Similarly, TOSSIM can replace a packet-level communication component for packet-level simulation, or replace a low-level radio chip component for a more precise simulation of the code execution. TOSSIM is a discrete event simulator. When it runs, it pulls events of the event queue (sorted by time) and executes them. Depending on the level of simulation, simulation events can represent hardware interrupts or high-level system events (such as packet reception). Additionally, tasks are simulation events, so that posting a task causes it to run a short time (e.g., a few microseconds) in the future.
+
+TOSSIM is a library: you must write a program that configures a simulation and runs it. TOSSIM supports two programming interfaces: Python and C++. Python allows you to interact with a running simulation dynamically, like a powerful debugger. However, since the interpretator can be a performance bottleneck when obtaining results, TOSSIM also has a C++ interface. Usually, transforming code from one to the other is very simple.
+
+TOSSIM currently does not support gathering power measurements. (But it can be fixed by add the plugin called PowerTossimZ)
+
 Before the tutorial, I want to emphasize something that may challenge your patience and your ability
 when you explore how to install TinyOS correctly. If the direction is wrong, you will waste much time.
 Espeically, sometimes the wrong installation only breaks a part of functions of TinyOS and if you will
