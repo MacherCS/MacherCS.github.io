@@ -18,3 +18,6 @@ Video Presentation
 * If you are in China, video can be found at <br/>
 https://v.youku.com/v_show/id_XMTY2Mzk0Nzg2OA==.html?spm=a2hzp.8244740.0.0
 
+* Else, video can be found at <br/>
+https://www.youtube.com/watch?v=D8CUfgWDwq0&t=227s
+
