@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Thomas's HomePage</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" media="all" type="text/css" href="js/jQuery-Impromptu/jquery-impromptu.css" />
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" class="logo">
+			<h1>Pegasus</h1>
+			</a>
+			<!--<span>talk to me<b>9-876-543-210</b></span>-->
+			<span>
+				<br/>Email:<br/>
+				zuchao.ma@connect.polyu.hk
+			</span>
+		</div>
+		<ul>
+			<li>
+				<a href="index.html">home</a>
+			</li>
+			<li>
+				<a href="activities.html">activities</a>
+			</li>
+			<li>
+				<a href="fields.html">fields</a>
+			</li>
+			<li>
+				<a href="blog.html">blog</a>
+			</li>
+			<li>
+				<a href="project.html">project</a>
+			</li>
+			<li>
+				<a href="teams.html">teams</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		<div class="article">
+			<h2>Something important, very very important.</h2>
+			<div> 
+				<a class="figure" href="javascript:void(0);" rel="external nofollow" onclick="openPrompts()"><img src="images/her/me.jpg" alt="" width="400"></a>
+				<!--<span>A summer camp in Gossip of SJTU</span>
+				<p>
+					In the July of 2018, the summer camp.
+				</p>-->
+			</div>
+			<div>
+				<a class="figure" href="javascript:void(0);" rel="external nofollow" onclick="openPrompts()"><img src="images/her/you.jpg" alt="" width="400"></a>
+				<!--<span>White hat hackers conference in Beijing</span>
+				<p>
+					2018.06.16. The security conference.
+				</p>-->
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<ul>
+			<li id="twitter">
+				<a href="#">twitter</a>
+			</li>
+			<li id="facebook">
+				<a href="#">facebook</a>
+			</li>
+			<li id="googleplus">
+				<a href="#">googleplus</a>
+			</li>
+		</ul>
+		<p>
+			&copy; Copyright 2019. All rights reserved.&nbsp;
+		</p>
+	</div>
+
+
+	<script type="text/javascript">
+	function openPrompts(){
+		var content = 'Are you my girl? <br/><br/>' + 
+			'<label>Name &nbsp &nbsp <input type="text" name="fname" value=""></label><br/>'+
+			'<label>Password <input type="text" name="lname" value=""></label><br/>';
+
+		$.prompt(content, {
+			title: "Authentication",
+			buttons: { "Yes, Confirm": true, "No, Close": false },
+			persistent: false,
+			submit: function(e,v,m,f){
+				if(v){
+					e.preventDefault();
+					//openMultiplePrompts();
+				}
+			}
+		});
+	}
+	</script>
+	<script type="text/javascript" src="js/jQuery-Impromptu/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jQuery-Impromptu/jquery-impromptu.js"></script>
+
+</body>
+</html>

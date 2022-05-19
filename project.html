@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Thomas's HomePage</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" class="logo">
+			<h1>Pegasus</h1>
+			</a>
+			<!--<span>talk to me<b>9-876-543-210</b></span>-->
+			<span>
+				<br/>Email:<br/>
+				zuchao.ma@connect.polyu.hk
+			</span>
+		</div>
+		<ul>
+			<li>
+				<a href="index.html">home</a>
+			</li>
+			<li>
+				<a href="activities.html">activities</a>
+			</li>
+			<li>
+				<a href="fields.html">fields</a>
+			</li>
+			<li>
+				<a href="blog.html">blog</a>
+			</li>
+			<li class="selected">
+				<a href="project.html">project</a>
+			</li>
+			<li>
+				<a href="teams.html">teams</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		<!--<div class="content">
+			<img src="images/activities/gossip/gossip2.jpg" alt="">
+			<h3>Comming soon</h3>
+			<p>
+				......
+			</p>
+		</div>-->
+
+		<div id="blog">
+			
+
+
+		</div>
+		<div id="sidebar">
+			<div>
+				<h3>recent post</h3>
+				<ul>
+					<li>
+						<a href="project.html?id=QY">Android APP - QY (2016-07-30)</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h3>archives</h3>
+				<ul>
+					<li>
+						<a href="project.html?id=QY">Android APP - QY (2016-07-30)</a>
+					</li>
+					<li>
+						<a href="project.html?id=teachingCloud">Teaching Experiment Cloud</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<ul>
+			<li id="twitter">
+				<a href="#">twitter</a>
+			</li>
+			<li id="facebook">
+				<a href="#">facebook</a>
+			</li>
+			<li id="googleplus">
+				<a href="#">googleplus</a>
+			</li>
+		</ul>
+		<p>
+			&copy; Copyright 2019. All rights reserved.&nbsp;
+		</p>
+	</div>
+
+	<script type="text/javascript" src="js/marked.js"></script>
+	<script type="text/javascript">
+		id = GetQueryString("id")
+		if(id != null && id.toString().length>1)
+		{}
+		else{
+			id = "QY"
+		}
+
+		var ajx = new XMLHttpRequest()
+        ajx.open("get","/project_data/"+id+".md", true)
+        ajx.onreadystatechange = function(){
+            if(ajx.readyState!=4){
+                return;
+            }
+            if(ajx.status>=200 && ajx.status<300){
+                showContent(ajx.responseText);
+            }
+        }
+        ajx.send()
+
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+
+		function showContent(content){
+			var rendererMD = new marked.Renderer();
+		    marked.setOptions({
+		      renderer: rendererMD,
+		      gfm: true,
+		      tables: true,
+		      breaks: false,
+		      pedantic: false,
+		      sanitize: false,
+		      smartLists: true,
+		      smartypants: false
+		    });//基本设置
+		    //console.log('I am using __markdown__.');
+		    // Outputs: <p>I am using <strong>markdown</strong>.</p>
+		    document.getElementById('blog').innerHTML = marked(content);
+		}
+	</script>
+</body>
+</html>

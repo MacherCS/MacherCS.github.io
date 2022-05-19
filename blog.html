@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Thomas's HomePage</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" class="logo">
+			<h1>Pegasus</h1>
+			</a>
+			<!--<span>talk to me<b>9-876-543-210</b></span>-->
+			<span>
+				<br/>Email:<br/>
+				zuchao.ma@connect.polyu.hk
+			</span>
+		</div>
+		<ul>
+			<li>
+				<a href="index.html">home</a>
+			</li>
+			<li>
+				<a href="activities.html">activities</a>
+			</li>
+			<li>
+				<a href="fields.html">fields</a>
+			</li>
+			<li class="selected">
+				<a href="blog.html">blog</a>
+			</li>
+			<li>
+				<a href="project.html">project</a>
+			</li>
+			<li>
+				<a href="teams.html">teams</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		<div id="blog">
+			
+
+
+		</div>
+		<div id="sidebar">
+			<div>
+				<h3>recent post</h3>
+				<ul>
+					<li>
+						<a href="blog.html?id=pow_vs_pos"/>共识算法之PoW与PoS，孰优孰劣？(2022-05-19)</a>
+					</li>
+					<li>
+						<a href="blog.html?id=fuzz_embed"/>Fuzzing Embedded Linux Devices (2021-05-30)</a>
+					</li>
+					<li>
+						<a href="blog.html?id=qemu_2"/>Emulating Embedded Linux Systems with QEMU (2021-05-30)</a>
+					</li>
+					<li>
+						<a href="blog.html?id=qemu_1"/>Emulating Embedded Linux Devices with QEMU (2021-05-30)</a>
+					</li>
+					<li>
+						<a href="blog.html?id=resizeDisk"/>Resize the partition of disk under Ubuntu (2021-02-26)</a>
+					</li>
+					<li>
+						<a href="blog.html?id=tinyosInstall">The installation of TinyOS 2.1.2 (2020-03-14)</a>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<h3>archives</h3>
+				<ul>
+					<li>
+						<a href="blog.html?id=tdStoreModel">Time-series data storing model</a>
+					</li>
+					<li>
+						<a href="blog.html?id=influxDB">Something about InfluxDB</a>
+					</li>
+					<li>
+						<a href="#">The thought about the File of TSM Engine </a>
+					</li>
+					<li>
+						<a href="#">The inverted index of multi-dimension query</a>
+					</li>
+					<li>
+						<a href="#">The data write in TSM engine</a>
+					</li>
+					<li>
+						<a href="#">The data read in TSM engine</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<ul>
+			<li id="twitter">
+				<a href="#">twitter</a>
+			</li>
+			<li id="facebook">
+				<a href="#">facebook</a>
+			</li>
+			<li id="googleplus">
+				<a href="#">googleplus</a>
+			</li>
+		</ul>
+		<p>
+			&copy; Copyright 2019. All rights reserved.&nbsp;
+		</p>
+	</div>
+
+	<script type="text/javascript" src="js/marked.js"></script>
+	<script type="text/javascript">
+		id = GetQueryString("id")
+		if(id != null && id.toString().length>1)
+		{}
+		else{
+			id = "tinyosInstall"
+		}
+
+		var ajx = new XMLHttpRequest()
+        ajx.open("get","/blog_data/"+id+".md", true)
+        ajx.onreadystatechange = function(){
+            if(ajx.readyState!=4){
+                return;
+            }
+            if(ajx.status>=200 && ajx.status<300){
+                showContent(ajx.responseText);
+            }
+        }
+        ajx.send()
+
+		function GetQueryString(name)
+		{
+		     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		     var r = window.location.search.substr(1).match(reg);
+		     if(r!=null)return  unescape(r[2]); return null;
+		}
+
+		function showContent(content){
+			var rendererMD = new marked.Renderer();
+		    marked.setOptions({
+		      renderer: rendererMD,
+		      gfm: true,
+		      tables: true,
+		      breaks: false,
+		      pedantic: false,
+		      sanitize: false,
+		      smartLists: true,
+		      smartypants: false
+		    });//基本设置
+		    //console.log('I am using __markdown__.');
+		    // Outputs: <p>I am using <strong>markdown</strong>.</p>
+		    document.getElementById('blog').innerHTML = marked(content);
+		}
+	</script>
+	
+</body>
+</html>
