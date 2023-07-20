@@ -8,3 +8,6 @@ comply with
 versatile 
 stringent determinism requirement
 diverge
+from scratch
+devise
+impose
