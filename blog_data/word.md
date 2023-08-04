@@ -11,3 +11,11 @@ diverge
 from scratch
 devise
 impose
+error-prone
+Disruptive
+Deceptive
+in line with
+inherently
+intense
+manipulate
+retain
