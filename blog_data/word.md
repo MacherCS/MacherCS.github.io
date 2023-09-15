@@ -19,3 +19,11 @@ inherently
 intense
 manipulate
 retain
+retrieving
+refactor
+folklore performance assumptions
+pushback against
+exhibit
+result in 
+encompass
+along with
