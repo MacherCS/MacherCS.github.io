@@ -27,3 +27,5 @@ exhibit
 result in 
 encompass
 along with
+pinpoint
+susceptible
