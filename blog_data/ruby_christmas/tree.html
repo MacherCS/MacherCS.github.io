@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <title>MERRY CHRISTMAS</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -258,7 +259,7 @@
     </ul>
 
     <div id="tree">
-      <h1>Dear Ruby Chan ~ <br> MERRY CHRISTMAS</h1>
+      <h1>Dear Ruby Tyann ~ <br> MERRY CHRISTMAS</h1>
       <div id="star"></div>
       <div id="dan1"></div>
       <div id="dan2"></div>
@@ -382,7 +383,8 @@
         return Math.floor(Math.random() * (max - min + 1)) + min
       }
 
-      import { OrbitControls } from 'https://unpkg.com/three@0.123.0/examples/jsm/controls/OrbitControls.js';
+      // import { OrbitControls } from 'https://unpkg.com/three@0.123.0/examples/jsm/controls/OrbitControls.js';
+      import { OrbitControls } from 'https://machercs.github.io/blog_data/ruby_christmas/OrbitControls.js';
 
 			const scene = new THREE.Scene()
 			const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
