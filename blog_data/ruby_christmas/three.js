@@ -6411,7 +6411,7 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 			te[ 14 ] = ( n14 * n22 * n31 - n12 * n24 * n31 - n14 * n21 * n32 + n11 * n24 * n32 + n12 * n21 * n34 - n11 * n22 * n34 ) * detInv;
 			te[ 15 ] = ( n12 * n23 * n31 - n13 * n22 * n31 + n13 * n21 * n32 - n11 * n23 * n32 - n12 * n21 * n33 + n11 * n22 * n33 ) * detInv;
 
-			return this;
+			return this;;
 
 		}
 
@@ -26942,7 +26942,7 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 
 					console.warn( 'THREE.WebXRManager: Cannot change reference space type while presenting.' );
 
-				}
+				}}
 
 			};
 
@@ -29849,7 +29849,7 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 					// debug
 
 					/*
-					const geometry = new PlaneGeometry();
+					const geometry = new PlaneGeometry();;
 					const material = new MeshBasicMaterial( { map: _transmissionRenderTarget.texture } );
 
 					const mesh = new Mesh( geometry, material );
@@ -40864,7 +40864,7 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 
 			this.ior = source.ior;
 
-			this.iridescence = source.iridescence;
+			this.iridescence = source.iridescence;;
 			this.iridescenceMap = source.iridescenceMap;
 			this.iridescenceIOR = source.iridescenceIOR;
 			this.iridescenceThicknessRange = [ ...source.iridescenceThicknessRange ];
@@ -51193,6 +51193,7 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 			return this.setFromCartesianCoords( v.x, v.y, v.z );
 
 		}
+
 
 		setFromCartesianCoords( x, y, z ) {
 
