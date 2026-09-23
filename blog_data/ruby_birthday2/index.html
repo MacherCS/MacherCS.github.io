@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="卢比比的生日">
+  <title>卢比比的生日 🎂</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎂%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+
+  <!-- 背景漂浮装饰 & 彩带画布 -->
+  <div id="bg-fx" aria-hidden="true"></div>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <a class="nav-logo" href="#hero">🦫 卢比比生日派对</a>
+    <div class="nav-links">
+      <a href="#games">🎮 小游戏</a>
+      <a href="#gallery">🖼 表情包</a>
+      <a href="#wishes">💌 祝福墙</a>
+    </div>
+  </nav>
+
+  <!-- 首屏 -->
+  <header id="hero" class="hero">
+    <p class="hero-kicker">🎁 欢 迎 来 到 🎁</p>
+    <h1 class="hero-title"><span id="hero-name">卢比比</span>，生日快乐！</h1>
+    <p class="hero-sub">点点卢比比，会有惊喜哦！</p>
+    <div class="hero-ruby" id="hero-ruby" title="点我试试！"></div>
+    <div class="countdown" id="countdown">
+      <p class="countdown-label" id="countdown-label">距离生日还有</p>
+      <div class="countdown-tiles">
+        <div class="tile"><span class="tile-num" id="cd-days">--</span><span class="tile-unit">天</span></div>
+        <div class="tile"><span class="tile-num" id="cd-hours">--</span><span class="tile-unit">时</span></div>
+        <div class="tile"><span class="tile-num" id="cd-mins">--</span><span class="tile-unit">分</span></div>
+        <div class="tile"><span class="tile-num" id="cd-secs">--</span><span class="tile-unit">秒</span></div>
+      </div>
+    </div>
+    <button id="song-btn" class="btn btn-primary" type="button">🎤 播放卢比比之歌</button>
+  </header>
+
+  <main>
+    <!-- 小游戏 -->
+    <section id="games" class="section">
+      <h2 class="section-title">🎮 卢比比打地鼠</h2>
+      <p class="section-sub">玩个小游戏，和卢比比一起庆祝吧！</p>
+      <div class="games-wrap">
+
+        <div class="game-panel" id="whack-panel">
+          <div class="game-head">
+            <h3>🔨 卢比比打地鼠</h3>
+            <p class="game-tip">冒头的卢比比 +10 分，大笑卢比比 +25 分，戴墨镜的拽酷卢比比 -15 分，别打扰她耍酷！</p>
+          </div>
+          <div class="game-stats">
+            <span>得分 <b id="whack-score">0</b></span>
+            <span>时间 <b id="whack-time">30</b>s</span>
+            <span>最高 <b id="whack-best">0</b></span>
+          </div>
+          <div class="whack-grid" id="whack-grid"></div>
+          <div class="game-actions">
+            <button class="btn btn-primary" id="whack-start" type="button">开始游戏</button>
+          </div>
+          <div class="game-over hidden" id="whack-over">
+            <p class="game-over-title">⏰ 时间到！</p>
+            <p>你的得分：<b id="whack-final">0</b></p>
+            <p class="game-over-rank" id="whack-rank"></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 表情包画廊 -->
+    <section id="gallery" class="section section-alt">
+      <h2 class="section-title">🖼 卢比比表情包</h2>
+      <p class="section-sub">网络上超可爱的真实卢比比表情包，点击可以放大查看哦～</p>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <!-- 祝福墙 -->
+    <section id="wishes" class="section">
+      <h2 class="section-title">💌 生日祝福墙</h2>
+      <p class="section-sub">来自仔仔的祝福顺口溜～</p>
+      <div class="wish-grid" id="wish-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div id="footer-ruby"></div>
+    <p>🩷 卢比比生日快乐 · 仔仔留🪵</p>
+  </footer>
+
+  <!-- 表情放大弹窗 -->
+  <div class="modal hidden" id="gallery-modal">
+    <div class="modal-mask" data-close></div>
+    <div class="modal-body">
+      <button class="modal-close" type="button" data-close aria-label="关闭">×</button>
+      <div id="modal-ruby"></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="js/config.js?v=2"></script>
+  <script src="js/main.js?v=8"></script>
+  <script src="js/games.js?v=2"></script>
+  <script src="js/gallery.js?v=2"></script>
+  <script src="js/wishes.js?v=2"></script>
+</body>
+</html>
